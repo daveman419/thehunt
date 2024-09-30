@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Revolver</title>
+<link rel="preload" href="new/event3.png" as="image">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<style>
+
+@font-face {
+    font-family: 'revolver'; /* This name will be used to reference the font */
+    src: url('fonts/revolver.ttf') format('truetype'); /* Adjust the path to your TTF file */
+
+}
+.snack {
+text-align: center;
+font-family: 'revolver', sans-serif;
+font-size: 22px;
+filter: drop-shadow(3px 15px 20px rgba(0, 0, 0, .9));
+}
+
+.snack a {
+    text-decoration: none; /* This removes the underline from the hyperlink */
+    color: black; /* Sets the text color to black */
+}
+
+.snack a:hover, .snack a:visited, .snack a:active {
+    color: black; /* This ensures the color stays black for all states of the link */
+}
+
+@keyframes myFlip {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+        /* other starting styles */
+    }
+    to {
+        transform: perspective(400px);
+        /* other ending styles */
+    }
+}
+
+.animate__flip {
+    --animate-duration: 3s;
+    animation-name: myFlip;
+    animation-iteration-count: 5;
+}
+
+body{
+  background-image: url('new/event3.png');
+    background-size: cover; /* This ensures the image covers the div while maintaining aspect ratio */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    /* You might want to add height or min-height if the div doesn't have content to stretch it */
+    min-height: 300px;
+    margin: 0rem;
+    overflow: hidden;
+    padding: 30px;
+    height: 100vh;
+    width: 100vw;
+}
+
+@font-face {
+    font-family: 'west'; /* This name will be used to reference the font */
+    src: url('fonts/west.TTF') format('truetype'); /* Adjust the path to your TTF file */
+}
+
+.brave {
+text-align: center;
+font-family: 'west', sans-serif;
+font-size: 30px;
+filter: drop-shadow(30px 10px 20px rgba(0, 0, 0, .9));
+
+</style>
+</head>
+<body>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="snack"> 
+<a href="main.html">
+        <h1 class="animate__animated animate__flip">A</h1>
+    </a>
+</div>
+
+<div class="brave">
+<h2 style="text-align: center" class="brave">Are you brave enough to pull the trigger?</h2>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<title>Bang, Bang She shot me down</title>
+<head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<style>
+
+
+body{
+  background-image: url('new/event3.png');
+    background-size: cover; /* This ensures the image covers the div while maintaining aspect ratio */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    /* You might want to add height or min-height if the div doesn't have content to stretch it */
+    min-height: 300px;
+    margin: 50px;
+    padding: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.img-container {    
+    border: 5px solid black;
+    box-shadow: 5px 5px 10px rgba(255, 0, 55, 0.3);
+    cursor: pointer; /* Indicates clickable */
+}
+
+.img-content {
+    width: 100%; /* Make sure the image fills its container */
+    max-width: 420px;
+    height: 100%;
+    display: block;
+    opacity: 0.04;
+    transition: opacity 4s ease;
+    /* Make sure it can transform for the flip animation */
+    transform-style: preserve-3d;
+    perspective: 1000px; /* Adds depth to the perspective */
+}
+
+/* Ensure the animated classes are defined */
+.animate__flipInX {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-name: flipInX;
+}
+
+.img-content.revealed {
+    opacity: 1; /* Full visibility when revealed */
+}
+
+@keyframes flipOutX {
+    from {
+        transform: perspective(400px);
+    }
+    30% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        opacity: 1;
+    }
+    to {
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        opacity: 0;
+    }
+}
+
+.animate__flipOutX {
+    -webkit-animation-name: flipOutX;
+    animation-name: flipOutX;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+}
+
+@font-face {
+    font-family: 'west'; /* This name will be used to reference the font */
+    src: url('fonts/west.TTF') format('truetype'); /* Adjust the path to your TTF file */
+}
+
+@font-face {
+    font-family: 'west1'; /* Symbol font */
+    src: url('fonts/west1.TTF') format('truetype'); /* Adjust the path to your TTF file */
+}
+
+.main-title {
+text-align: center;
+margin-bottom: 5px;
+margin-top: 5px;
+font-family: 'west', sans-serif;
+font-size: 12px;
+filter: drop-shadow(3px 15px 20px rgba(220, 0, 0, .9));
+}
+
+.container2 {
+  display: block; /* Changed from inline-block to block for margin auto to work */
+  margin: 0 auto; /* Auto margin centers the block element */
+  width: fit-content; /* This makes the div only as wide as its content, helpful for centering */
+  min-height: 150px;
+}
+
+
+.parag {
+text-align: center;
+margin-bottom: 5px;
+margin-top: 5px;
+font-family: 'west', sans-serif;
+font-size: 28px;
+filter: drop-shadow(3px 15px 20px rgba(220, 0, 0, .9));
+}
+
+
+.symbol {
+  color: black; 
+  text-align: center;
+  font-family: 'west1', sans-serif;
+  font-size: 26px;  
+  margin-top: 0;
+}
+
+
+.symbol a {
+  text-decoration: none; /* This removes the underline from the hyperlink */
+  color: black; /* Sets the text color to black */
+}
+
+.symbol a:hover, .symbol a:visited, .symbol a:active {
+  color: black; /* This ensures the color stays black for all states of the link */
+}
+
+
+@keyframes cursor {
+  50% { border-color: transparent; }
+  100% { border-color: transparent; } /* Added to ensure cursor stays hidden */
+}
+
+.typewriter {
+  font-size: 5em;
+  letter-spacing: 4px;
+  border-right: 5px solid;
+  margin: 0 auto;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: 
+    typing 1.8s steps(8),
+    cursor 0.4s step-end 10 alternate, /* Cursor blinks 8 times */
+    hideCursor 0s ease-in 3.2s; /* New keyframe to keep cursor hidden after typing */
+  animation-fill-mode: forwards; /* Keeps the animation in its final state */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes hideCursor {
+  to { border-right-color: transparent; } /* Keeps the cursor hidden */
+}
+
+@font-face {
+    font-family: 'revolver'; /* This name will be used to reference the font */
+    src: url('fonts/revolver.ttf') format('truetype'); /* Adjust the path to your TTF file */
+}
+.snack {
+text-align: left;
+font-family: 'revolver', sans-serif;
+font-size: 22px;
+filter: drop-shadow(3px 15px 20px rgba(220, 0, 0, .9));
+}
+
+.audio-text {
+    font-size: 44px;
+    cursor: pointer;
+    text-decoration: none;    
+    color: black;
+    font-family: 'west4', sans-serif;
+    transition: color 0.3s ease;
+margin-bottom: 0;
+margin-top: 0;
+}
+
+.audiowest {
+  color: black; 
+  text-align: center;
+  font-family: 'west4', sans-serif;
+  font-size: 26px;  
+}
+
+@font-face {
+    font-family: 'west4'; /* Symbol font */
+    src: url('fonts/west4.ttf') format('truetype'); /* Adjust the path to your TTF file */
+}
+
+
+.audio-text:hover, .audio-text:visited, .audio-text:active {  
+text-decoration: none;    
+color: black;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+<div class="main-title container2"> 
+<h1 class="typewriter">The Hunt</h1>
+</div>
+    
+
+<!-- revolver font
+<div class="snack"> 
+<p> A<p>
+</div>
+-->
+
+<div class="parag">
+<p style="text-align: center">Click the image tiles below to reveal the story line<br><br>Also, Put on the hat, will ya?!</p>
+</div>
+
+<div style="text-align: center;" class="audiowest">
+    <p id="playText" class="audio-text" title="Play song";>f</p>
+    <audio id="audio" src="bangbang1.mp3" loop></audio>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="img-container">
+        <img src="new/loading21.png" class="img-content" alt="Loading">
+    </div>
+    <div class="img-container">
+        <img src="new/snack1.png" class="img-content" alt="Snack">
+    </div>
+</div>
+<div class="container">
+    <div class="img-container">
+        <img src="new/heat1.png" class="img-content" alt="Heat">
+    </div>
+    <div class="img-container">
+        <img src="new/tension1.png" class="img-content" alt="Tension">
+    </div>
+</div>
+<div class="container">
+    <div class="img-container">
+        <img src="new/down3.png" class="img-content" alt="Down">
+    </div>
+    <div class="img-container" style="position: relative; overflow: hidden;">
+    <img src="new/sunset.png" class="img-content" alt="sunset">
+</div>
+</div>
+
+<br>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.img-content');
+
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            if (this.classList.contains('revealed')) {
+                // Start hiding the image immediately
+                this.style.transition = 'opacity 0.5s ease, transform 0.5s ease'; 
+                this.style.opacity = '0.04';
+                this.classList.remove('revealed', 'animate__flipInX', 'animate__animated');
+                void this.offsetWidth; // Trigger reflow
+                
+                // Use flipOutX for hiding
+                this.classList.add('animate__animated', 'animate__flipOutX');
+                
+                // After animation, clean up
+                setTimeout(() => {
+                    this.classList.remove('animate__flipOutX', 'animate__animated');
+                }, 650); // Adjust time according to animation length
+
+            } else {
+                // Existing reveal logic
+                this.classList.remove('animate__flipOutX', 'animate__animated');
+                void this.offsetWidth;
+                this.style.opacity = '1';
+                this.style.transition = 'none';
+                this.classList.add('animate__animated', 'animate__flipInX');
+
+                const animationDuration = 1000;
+                setTimeout(() => {
+                    this.style.transition = 'opacity 0.5s ease';
+                    this.classList.add('revealed');
+                }, animationDuration);
+            }
+        });
+    });
+});
+
+const playText = document.getElementById('playText');
+const audio = document.getElementById('audio');
+
+playText.addEventListener('click', function() {
+    if (audio.paused) {
+        audio.play();
+        playText.textContent = 'f';
+    } else {
+        audio.pause();
+        playText.textContent = 'f';
+    }
+});
+
+</script>
+
+
+<!--
+<form> 
+<input type="text" name="fname"> 
+</form>
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+-->
+
+
+<div class="symbol"> 
+          <a href="index.html" title="Ride back to homepage">
+            <h1>p</h1>
+          </a>
+        </div>
+
+<!--
+<div class="snack"> 
+<p> A<p>
+</div>
+-->
+
+</body>
+</html>
